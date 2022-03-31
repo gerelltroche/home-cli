@@ -1,0 +1,22 @@
+{
+  "name": "home-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "get-stdin": "^9.0.0",
+    "meow": "^10.1.2"
+  },
+  "bin": {
+    "index": "./index.js",
+    "index2": "./index2.js"
+  }
+}
