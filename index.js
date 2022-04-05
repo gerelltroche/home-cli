@@ -79,18 +79,19 @@ function getNewVersion(updateType = 'patch') {
   }
 }
 
-async function release(flags) {
+async function release(flags = 'patch') {
   await updateDevelop();
   const newVersion = getNewVersion(flags);
-  console.log(chalk.cyanBright.bold(`Creating release ${newVersion}`))
+  console.log(chalk.blue.bold(`Creating release ${newVersion}`));
   await exec(`
     git flow release start ${newVersion} && 
     npm version patch && 
     git flow release finish ${newVersion}
   `);
-  console.log(chalk.cyanBright.bold('release created.'));
+  console.log(chalk.cyanBright.bold('Release created...'));
+  console.log(chalk.blue.bold(`Attempting to push release and tags...`));
   await exec('git push --all && git push --tags');
-  console.log(chalk.cyanBright.bold('Release pushed.'))
+  console.log(chalk.cyanBright.bold('Release pushed.'));
 }
 
 await release(cli.flags)
