@@ -79,12 +79,14 @@ function getNewVersion(updateType = 'patch') {
   }
 }
 
-async function release(thingToYell, flags) {
+async function release(flags) {
   await updateDevelop();
   const newVersion = getNewVersion(flags);
-  await exec(`git flow release start ${newVersion}`);
-
-
+  await exec(`
+    git flow release start ${newVersion} && 
+    npm version patch && 
+    git flow release finish ${newVersion}
+  `);
 }
 
-await release(cli.input[0], cli.flags)
+await release(cli.flags)
