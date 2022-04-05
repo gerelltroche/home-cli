@@ -57,23 +57,24 @@ async function updateDevelop() {
 }
 
 function getNewVersion(updateType = 'patch') {
+  const { type } = updateType;
   const file = fs.readFileSync('./package.json');
   const packageJSON = JSON.parse(file);
   const version = packageJSON.version.split('.')
 
   const composeVersion = (versionArray) => versionArray.join('.')
 
-  if (updateType === 'major') {
+  if (type === 'major') {
     version[0]++
     return composeVersion(version);
   }
 
-  if (updateType === 'minor') {
+  if (type === 'minor') {
     version[1]++
     return composeVersion(version);
   }
 
-  if (updateType === 'patch') {
+  if (type === 'patch') {
     version[2]++
     return composeVersion(version);
   }
