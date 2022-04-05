@@ -87,7 +87,7 @@ async function release(flags = 'patch') {
   await exec(`
     git flow release start ${newVersion} && 
     npm version patch && 
-    git flow release finish ${newVersion}
+    git flow release finish -m "v${newVersion}" ${newVersion}
   `);
   console.log(chalk.cyanBright.bold('Release created...'));
   console.log(chalk.blue.bold(`Attempting to push release and tags...`));
