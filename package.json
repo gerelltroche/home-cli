@@ -2,7 +2,7 @@
   "name": "home-cli",
   "version": "1.0.6",
   "description": "",
-  "main": "index.js",
+  "main": "release.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,6 @@
     "meow": "^10.1.2"
   },
   "bin": {
-    "index": "./index.js",
-    "index2": "./index2.js"
+    "release": "release.js"
   }
 }
