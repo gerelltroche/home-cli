@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/Users/Gerell/scoop/apps/nvm/current/nodejs/nodejs node
 
 import { exec as childProcess } from 'child_process';
 import meow from 'meow';
